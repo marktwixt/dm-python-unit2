@@ -1,8 +1,11 @@
-size,name,price,flavor,frosting,sprinkles,filling
-mini,Mini Chocolate Dream,2.5,chocolate,chocolate,,
-mini,Mini Vanilla Delight,2.5,vanilla,vanilla,,
-mini,Mini Strawberry,2.5,strawberry,strawberry,,
-large,Large Chocolate Dream,4.5,chocolate,chocolate,,
-large,Large Vanilla Delight,4.5,vanilla,vanilla,,
-large,Large Strawberry,4.5,strawberry,strawberry,,
-large,Large Red Velvet,4.5,red velvet,cream cheese,,
+name,price,flavor,frosting,sprinkles,filling,size
+Chocolate Dream,3.50,chocolate,chocolate,Yes,,Regular
+Vanilla Delight,3.00,vanilla,vanilla,No,,Regular
+Strawberry Bliss,3.25,strawberry,strawberry,Yes,,Regular
+Red Velvet Supreme,3.75,red velvet,cream cheese,No,,Regular
+Lemon Sunshine,3.25,lemon,lemon,Yes,,Regular
+Caramel Delight,3.50,caramel,caramel,No,,Regular
+Banana Split,3.75,banana,chocolate,Yes,whipped cream,Regular
+Cookies and Cream,3.50,vanilla,oreo,Yes,,Regular
+Mint Chocolate Chip,3.75,mint,chocolate,No,,Regular
+Blueberry Burst,3.25,blueberry,vanilla,Yes,blueberry jam,Regular

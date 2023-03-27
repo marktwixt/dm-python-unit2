@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Cupcake Store</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{url_for('all_cupcakes')}}">All Cupcakes</a></li>
+            <li><a href="{{url_for('order')}}">Order</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <h2>Your Order</h2>
+        <div class="order-list">
+            <!-- Loop through the order items and display them -->
+            {% for item in order_items %}
+                <div class="order-item">
+                    <h3>{{ item.cupcake.name }}</h3>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>Price: {{ item.total_price }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <p>Total Price: {{ order_total }}</p>
+    </main>
+    <footer>
+        <p>&copy; 2023 Cupcake Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

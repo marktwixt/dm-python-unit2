@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ cupcake.name }}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Cupcake Store</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{url_for('all_cupcakes')}}">All Cupcakes</a></li>
+            <li><a href="{{url_for('order')}}">Order</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <h2>{{ cupcake["name"] }}</h2>
+        <p>{{ cupcake["description"] }}</p>
+        <p>Price: {{ cupcake["price"] }}</p>
+        <p>Flavor: {{ cupcake["flavor"] }}</p>
+        <p>Frosting: {{ cupcake["frosting"] }}</p>
+        <p>Sprinkles: {{ cupcake["sprinkles"] }}</p>
+        <p>Filling: {{ cupcake["filling"] }}</p>
+        <a href="{{url_for('all_cupcakes')}}">Back to All Cupcakes</a>
+    </main>
+    <footer>
+        <p>&copy; 2023 Cupcake Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
