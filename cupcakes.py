@@ -40,7 +40,14 @@ class Large(Cupcake):
 
     def calculate_price(self, quantity):
         return quantity * self.price
-
+    
+def get_cupcake_by_id(file, cupcake_id):
+    cupcakes = get_cupcakes_from_csv(file)
+    try:
+        return cupcakes[cupcake_id - 0]  # Assuming the cupcake_id starts from 1
+    except IndexError:
+        return None
+    
 def get_cupcakes_from_csv(file):
     cupcakes = []
     with open(file, newline="\n") as csvfile:

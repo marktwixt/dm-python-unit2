@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from cupcakes import get_cupcakes_from_csv  # Import the function from cupcakes.py
+from cupcakes import get_cupcakes_from_csv, get_cupcake_by_id  # Import the new function from cupcakes.py
 
 app = Flask(__name__)
 
@@ -14,7 +14,11 @@ def all_cupcakes():
 
 @app.route("/cupcake_individual/<int:cupcake_id>")  # Add a variable to represent the cupcake_id
 def individual_cupcake(cupcake_id):  # Add cupcake_id as an argument to the function
-    return render_template("individual-cupcake.html")
+    cupcake = get_cupcake_by_id("cupcakes.csv", cupcake_id)  # Call the function to get the cupcake details
+    if cupcake:
+        return render_template("individual-cupcake.html", cupcake=cupcake)  # Pass the cupcake object to the template
+    else:
+        return "Cupcake not found", 404
 
 @app.route("/order")
 def order():

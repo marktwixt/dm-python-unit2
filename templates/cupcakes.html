@@ -6,7 +6,7 @@
     <title>All Cupcakes</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='styles.css') }}"
+      href="{{url_for('static', filename='styles.css')}}"
     />
   </head>
   <body>
@@ -25,12 +25,12 @@
       <div class="cupcake-list">
         <!-- Loop through the cupcakes and display them -->
         {% for cupcake in cupcakes %}
-        <div class="cupcake-item">
-          <h3>{{ cupcake["name"] }}</h3>
-          <p>Price: {{ cupcake["price"] }}</p>
-          <a href="{{url_for('individual_cupcake', cupcake_id=cupcake['id'])}}">View Details</a>
-        </div>
-        {% endfor %}
+    <div class="cupcake">
+        <h3>{{ cupcake["name"] }}</h3>
+        <p>Price: {{ cupcake["price"] }}</p>
+        <a href="{{url_for('individual_cupcake', cupcake_id=loop.index0)}}">View Details</a>
+    </div>
+{% endfor %}
       </div>
     </main>
     <footer>
