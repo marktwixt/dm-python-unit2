@@ -40,7 +40,13 @@ class Large(Cupcake):
 
     def calculate_price(self, quantity):
         return quantity * self.price
-    
+
+class OrderItem:
+    def __init__(self, cupcake, quantity, total_price):
+        self.cupcake = cupcake
+        self.quantity = quantity
+        self.total_price = total_price
+
 def get_cupcake_by_id(file, cupcake_id):
     cupcakes = get_cupcakes_from_csv(file)
     try:
@@ -91,6 +97,43 @@ def append_cupcake(file, cupcake):
             "size": cupcake.size,
         }
         writer.writerow(cupcake_dict)
+
+def get_order_items_from_csv(file):
+    order_items = []
+    with open(file, newline="\n") as csvfile:
+        reader = csv.DictReader(csvfile)
+
+        for row in reader:
+            print("Row:", row)  # Add print statement to debug row data
+            cupcake_name = row["name"]
+            cupcake = next((cupcake for cupcake in get_cupcakes_from_csv("cupcakes.csv") if cupcake["name"] == cupcake_name), None)
+            if cupcake is None:
+                continue
+            quantity = int(row["quantity"])
+            total_price = float(row["total_price"])
+            order_item = OrderItem(cupcake, quantity, total_price)
+            order_items.append(order_item)
+    print("Order items in get_order_items_from_csv:", order_items)  # Add print statement to debug order items
+    return order_items
+
+def write_order_csv(file, order_items):
+    with open(file, "w", newline="\n") as csvfile:
+        fieldnames = ["name", "quantity", "total_price"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for item in order_items:
+            order_item_dict = {
+                "name": item.cupcake["name"],
+                "quantity": item.quantity,
+                "total_price": item.total_price,
+            }
+            writer.writerow(order_item_dict)
+
+def delete_order_item(file, item_id):
+    order_items = get_order_items_from_csv(file)
+    del order_items[item_id]
+    write_order_csv(file, order_items)
 
 if __name__ == "__main__":
     # Create a list of cupcake instances

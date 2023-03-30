@@ -15,21 +15,22 @@
             <li><a href="{{url_for('home')}}">Home</a></li>
             <li><a href="{{url_for('all_cupcakes')}}">All Cupcakes</a></li>
             <li><a href="{{url_for('order')}}">Order</a></li>
+            <li><a href="{{url_for('shopping_cart')}}">Shopping Cart</a></li>
         </ul>
     </nav>
     <main class="container">
         <h2>Your Order</h2>
-        <div class="order-list">
-            <!-- Loop through the order items and display them -->
-            {% for item in order_items %}
-                <div class="order-item">
-                    <h3>{{ item.cupcake.name }}</h3>
-                    <p>Quantity: {{ item.quantity }}</p>
-                    <p>Price: {{ item.total_price }}</p>
-                </div>
-            {% endfor %}
-        </div>
-        <p>Total Price: {{ order_total }}</p>
+        <form action="{{url_for('add_to_order')}}" method="POST">
+            <label for="cupcake_id">Cupcake:</label>
+            <select name="cupcake_id" id="cupcake_id">
+                {% for cupcake in cupcakes %}
+                    <option value="{{ loop.index0 }}">{{ cupcake.name }}</option>
+                {% endfor %}
+            </select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" min="1" value="1">
+            <button type="submit">Add to Order</button>
+        </form>
     </main>
     <footer>
         <p>&copy; 2023 Cupcake Store. All rights reserved.</p>
