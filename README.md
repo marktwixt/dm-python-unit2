@@ -24,7 +24,7 @@ Clone the repository to your local machine:
 git clone https://github.com/marktwixt/dm-python-unit2.git
 
 Install the required dependencies:
-pip install -r requirements.txt
+Flask==2.1.1
 
 Usage:
 
@@ -61,7 +61,7 @@ Project Structure:
 
 -cupcakes.csv: A CSV file containing cupcake data.
 -current-order.csv: A CSV file containing the current order data.
--requirements.txt: A file containing the required Python packages for this project.
+
 
 Author
 Walt Ostrander
