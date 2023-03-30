@@ -23,19 +23,19 @@
     </nav>
     <main class="container">
       <h2>All Cupcakes</h2>
-      <div class="cupcake-list">
+      <div class="cupcake-grid">
         <!-- Loop through the cupcakes and display them -->
         {% for cupcake in cupcakes %}
-    <div class="cupcake">
-        <h3>{{ cupcake["name"] }}</h3>
-        <p>Price: {{ cupcake["price"] }}</p>
-        <a href="{{url_for('individual_cupcake', cupcake_id=loop.index0)}}">View Details</a>
-    </div>
-{% endfor %}
+          <div class="cupcake-box">
+            <h3>{{ cupcake["name"] }}</h3>
+            <p>Price: {{ cupcake["price"] }}</p>
+            <a href="{{url_for('individual_cupcake', cupcake_id=loop.index0)}}">View Details</a>
+          </div>
+        {% endfor %}
       </div>
     </main>
     <footer>
-      <p>&copy; 2023 Cupcake Store. All rights reserved.</p>
+      <p>&copy; 2023 Walt's Cupcake Corner. All rights reserved.</p>
     </footer>
   </body>
 </html>

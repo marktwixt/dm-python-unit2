@@ -12,8 +12,8 @@ def all_cupcakes():
     cupcakes = get_cupcakes_from_csv("cupcakes.csv")  # Call the function to get the list of cupcakes
     return render_template("cupcakes.html", cupcakes=cupcakes)  # Pass the cupcakes list to the template
 
-@app.route("/cupcake_individual/<int:cupcake_id>")  # Add a variable to represent the cupcake_id
-def individual_cupcake(cupcake_id):  # Add cupcake_id as an argument to the function
+@app.route("/cupcake_individual/<int:cupcake_id>")  # variable to represent the cupcake_id
+def individual_cupcake(cupcake_id):  # cupcake_id as an argument to the function
     cupcake = get_cupcake_by_id("cupcakes.csv", cupcake_id)  # Call the function to get the cupcake details
     if cupcake:
         return render_template("individual-cupcake.html", cupcake=cupcake)  # Pass the cupcake object to the template
