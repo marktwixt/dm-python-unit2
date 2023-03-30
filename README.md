@@ -48,6 +48,8 @@ Project Structure:
 
 -cupcakes.py: A Python module containing functions for reading and writing cupcake data from/to CSV files.
 
+-orders.py: A Python module contianing an "append_order" function (and any future order-related functions), separate from the cupcakes.py file for clarity when importing into the server.py file.
+
 --templates/: A directory containing HTML templates for rendering different pages.
 -index.html: The homepage template.
 -cupcakes.html: The template for displaying all cupcakes.
