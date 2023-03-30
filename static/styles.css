@@ -1,10 +1,10 @@
 /* General styles */
 body {
+    background-image: linear-gradient(to bottom right, #f7dafd, #dafdf7);
     font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f7dafd;
-    line-height: 1.6;
-}
+    margin: 0;
+    padding: 0;
+  }
 
 h1, h2, h3 {
     color: #9b518d;
@@ -35,6 +35,12 @@ a:hover {
     background-color: #ebebfc;
     border-radius: 5px;
 }
+
+.welcome-message {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
 /* Header and nav styles */
 header {
