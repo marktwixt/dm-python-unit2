@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from cupcakes import get_cupcakes_from_csv, get_cupcake_by_id, get_order_items_from_csv, delete_order_item # Import the new function from cupcakes.py
+from cupcakes import get_cupcakes_from_csv, get_cupcake_by_id, get_order_items_from_csv, delete_order_item
 from orders import append_order
 app = Flask(__name__)
 
@@ -54,7 +54,7 @@ def shopping_cart():
     order_items = get_order_items_from_csv("current-order.csv")
     order_total = sum(item.total_price for item in order_items)
     
-    # Add print statements to debug
+    # debug
     print("Order items:", order_items)
     print("Order total:", order_total)
 

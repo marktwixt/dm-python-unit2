@@ -50,7 +50,7 @@ class OrderItem:
 def get_cupcake_by_id(file, cupcake_id):
     cupcakes = get_cupcakes_from_csv(file)
     try:
-        return cupcakes[cupcake_id - 0]  # Assuming the cupcake_id starts from 1
+        return cupcakes[cupcake_id - 0]
     except IndexError:
         return None
     
@@ -104,7 +104,7 @@ def get_order_items_from_csv(file):
         reader = csv.DictReader(csvfile)
 
         for row in reader:
-            print("Row:", row)  # Add print statement to debug row data
+            print("Row:", row)  # debug
             cupcake_name = row["name"]
             cupcake = next((cupcake for cupcake in get_cupcakes_from_csv("cupcakes.csv") if cupcake["name"] == cupcake_name), None)
             if cupcake is None:
@@ -113,7 +113,7 @@ def get_order_items_from_csv(file):
             total_price = float(row["total_price"])
             order_item = OrderItem(cupcake, quantity, total_price)
             order_items.append(order_item)
-    print("Order items in get_order_items_from_csv:", order_items)  # Add print statement to debug order items
+    print("Order items in get_order_items_from_csv:", order_items)  # debug
     return order_items
 
 def write_order_csv(file, order_items):
