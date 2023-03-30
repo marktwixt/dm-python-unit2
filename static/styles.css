@@ -42,6 +42,13 @@ a:hover {
     margin: 0 auto;
   }
 
+  .center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+  
 /* Header and nav styles */
 header {
     text-align: center;
