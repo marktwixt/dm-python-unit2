@@ -21,7 +21,6 @@ class Cupcake(ABC):
     def calculate_price(self, quantity):
         pass
 
-
 class Mini(Cupcake):
     size = "mini"
 
@@ -130,6 +129,9 @@ def write_order_csv(file, order_items):
             }
             writer.writerow(order_item_dict)
 
+# function to read the order items from a CSV file, 
+# delete the item with the specified ID, 
+# then write the updated list of order items back to the CSV file.
 def delete_order_item(file, item_id):
     order_items = get_order_items_from_csv(file)
     del order_items[item_id]

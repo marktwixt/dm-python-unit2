@@ -1,13 +1,17 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 /* General styles */
 body {
     background-image: linear-gradient(to bottom right, #f7dafd, #dafdf7);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-  }
+}
 
 h1, h2, h3 {
     color: #9b518d;
+    font-family: 'Pacifico', cursive; /* Add bakery-like font */
 }
 
 h1 {
@@ -40,15 +44,15 @@ a:hover {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-  }
+}
 
-  .center-image {
+.center-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-  }
-  
+}
+
 /* Header and nav styles */
 header {
     text-align: center;
@@ -126,6 +130,6 @@ footer {
 }
 
 .cupcake-box a:hover {
-    background-position: 200% 200%;
-    color: #fff;
+background-position: 200% 200%;
+color: #fff;
 }
